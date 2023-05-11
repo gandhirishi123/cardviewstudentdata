@@ -11,9 +11,20 @@ function appenddata() {
     let agevalue = document.getElementById('sAge').value
     let emailidvalue = document.getElementById('semail').value
 
-    
+    function validateEmail(emailidvalue) {
+        var mailFormat =  /\S+@\S+\.\S+/;
+        if (emailidvalue.value.match(mailFormat)) {
+            alert('Valid Emailid!')
+          return true;
+        } else {
+          alert("Invalid address!");
+          return false;
+        }
+      }
+      
+    if(validateEmail=true){
 
-    if (namevalue.length,agevalue.length,emailidvalue.length){
+    if (namevalue.length , agevalue.length , emailidvalue.length ){
         let inputData =
     {
         name: namevalue,
@@ -23,6 +34,7 @@ function appenddata() {
 
     StudentData.unshift(inputData)
     printcard()
+    
     document.getElementById('sname').value = ``
     document.getElementById('sAge').value =``
     document.getElementById('semail').value =``
@@ -31,8 +43,8 @@ function appenddata() {
         alert('All feilds are required')
     }
 }
+}
 printcard()
-
 function printcard() {
     document.getElementById('data').innerHTML = ``
 
