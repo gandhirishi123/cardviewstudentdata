@@ -13,7 +13,7 @@ function appenddata() {
 
     
 
-    if (namevalue.length){
+    if (namevalue.length,agevalue.length,emailidvalue.length){
         let inputData =
     {
         name: namevalue,
@@ -26,8 +26,8 @@ function appenddata() {
     document.getElementById('sname').value = ``
     document.getElementById('sAge').value =``
     document.getElementById('semail').value =``
-
-    }else{
+    }
+    else{
         alert('All feilds are required')
     }
 }
