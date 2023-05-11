@@ -11,7 +11,10 @@ function appenddata() {
     let agevalue = document.getElementById('sAge').value
     let emailidvalue = document.getElementById('semail').value
 
-    let inputData =
+    
+
+    if (namevalue.length){
+        let inputData =
     {
         name: namevalue,
         age: agevalue,
@@ -20,6 +23,13 @@ function appenddata() {
 
     StudentData.unshift(inputData)
     printcard()
+    document.getElementById('sname').value = ``
+    document.getElementById('sAge').value =``
+    document.getElementById('semail').value =``
+
+    }else{
+        alert('All feilds are required')
+    }
 }
 printcard()
 

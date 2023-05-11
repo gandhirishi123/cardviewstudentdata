@@ -8,3 +8,6 @@ body{
 .card{
     background-color: rgb(243, 220, 220);
 }
+button{
+    border-radius: 25%;
+}
