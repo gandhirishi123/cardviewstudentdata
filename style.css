@@ -11,3 +11,6 @@ body{
 button{
     border-radius: 25%;
 }
+span{
+    visibility: hidden;
+}

@@ -1,49 +1,70 @@
 document.getElementById('sb').addEventListener('click', appenddata)
 
-
 let StudentData = [
-    { name: 'Rishi', age: '21', emailid: 'name@xyz.com' }
+    { name: 'XYZ', age: '20', emailid: 'name@xyz.com' }
 ]
 
+let namevalue = document.getElementById('sname').value
+let agevalue = parseInt(document.getElementById('sAge').value)
+let emailAdress = document.getElementById('semail').value;
 
 function appenddata() {
     let namevalue = document.getElementById('sname').value
     let agevalue = document.getElementById('sAge').value
-    let emailidvalue = document.getElementById('semail').value
+    let emailAdress = document.getElementById('semail').value;
 
-    function validateEmail(emailidvalue) {
-        var mailFormat =  /\S+@\S+\.\S+/;
-        if (emailidvalue.value.match(mailFormat)) {
-            alert('Valid Emailid!')
-          return true;
-        } else {
-          alert("Invalid address!");
-          return false;
-        }
-      }
-      
-    if(validateEmail=true){
-
-    if (namevalue.length , agevalue.length , emailidvalue.length ){
+    console.log(validateEmail(emailAdress));
+    if (validateEmail(emailAdress) == true && namevalue.length > 1 && agevalue.length > 1 ) {
         let inputData =
-    {
-        name: namevalue,
-        age: agevalue,
-        emailid: emailidvalue
+        {
+            name: namevalue,
+            age: agevalue,
+            emailid: emailAdress
+        }
+        StudentData.unshift(inputData)
+        printcard()
+        return true
+    }
+    else if (namevalue.length < 1) {
+        alert(
+            `name too short`
+        )
+        return false
+    }
+    else if (agevalue.length < 1) {
+        alert(
+            `age too short`
+        )
+        return false
     }
 
-    StudentData.unshift(inputData)
-    printcard()
-    
-    document.getElementById('sname').value = ``
-    document.getElementById('sAge').value =``
-    document.getElementById('semail').value =``
-    }
-    else{
-        alert('All feilds are required')
-    }
 }
+// function validateEmail(emailidvalue) {
+//     var mailFormat = /\S+@\S+\.\S+/;
+//     if (emailidvalue.match(mailFormat)) {
+//         console.log('Valid Emailid!')
+//         return true;
+//     } else {
+//         console.log("Invalid address!");
+//         return false;
+//     }
+// }
+function validateEmail (emailAdress)
+{
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (emailAdress.match(regexEmail)) {
+    return true; 
+  } else {
+    alert(
+        `Invalid Email`
+    )
+    return false
+  }
 }
+
+
+
+
 printcard()
 function printcard() {
     document.getElementById('data').innerHTML = ``
@@ -52,18 +73,18 @@ function printcard() {
         document.getElementById('data').innerHTML += `
         <div class="col mt-3" >
             <div class="card"style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Student</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].name}</h6>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].age}</h6>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].emailid}</h6>
-                          <button class="btn btn-danger" onClick="deletecard(${i})">Delete</button>
-                        </div>
+                <div class="card-body">
+                    <h5 class="card-title">Student</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].name}</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].age}</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${StudentData[i].emailid}</h6>
+                    <button class="btn btn-danger" onClick="deletecard(${i})">Delete</button>
+                </div>
             </div>
         </div>`
     }
-}
 
+}
 
 function deletecard(index) {
     if (confirm('Are You Sure?')) {
