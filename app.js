@@ -4,9 +4,9 @@ let StudentData = [
     { name: 'XYZ', age: '20', emailid: 'name@xyz.com' }
 ]
 
-let namevalue = document.getElementById('sname').value
-let agevalue = parseInt(document.getElementById('sAge').value)
-let emailAdress = document.getElementById('semail').value;
+// let namevalue = document.getElementById('sname').value
+// let agevalue = parseInt(document.getElementById('sAge').value)
+// let emailAdress = document.getElementById('semail').value;
 
 function appenddata() {
     let namevalue = document.getElementById('sname').value
@@ -25,30 +25,20 @@ function appenddata() {
         printcard()
         return true
     }
-    else if (namevalue.length < 1) {
+    else if (agevalue.length == 1) {
+        alert(
+            `AGE too short`
+        )
+        return false
+    }
+    else if (namevalue.length = 1) {
         alert(
             `name too short`
         )
         return false
-    }
-    else if (agevalue.length < 1) {
-        alert(
-            `age too short`
-        )
-        return false
-    }
-
+    } 
 }
-// function validateEmail(emailidvalue) {
-//     var mailFormat = /\S+@\S+\.\S+/;
-//     if (emailidvalue.match(mailFormat)) {
-//         console.log('Valid Emailid!')
-//         return true;
-//     } else {
-//         console.log("Invalid address!");
-//         return false;
-//     }
-// }
+
 function validateEmail (emailAdress)
 {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -56,8 +46,7 @@ function validateEmail (emailAdress)
     return true; 
   } else {
     alert(
-        `Invalid Email`
-    )
+        `Invalid Email`)
     return false
   }
 }
