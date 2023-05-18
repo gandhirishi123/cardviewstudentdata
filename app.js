@@ -32,7 +32,7 @@ function appenddata() {
             `AGE too short`
         )
         document.getElementById('alertbox').style.display="block"
-        document.getElementById('alertbox').innerHTML+=` AGE too short`
+        document.getElementById('alertbox').innerHTML=` AGE too short`
         console.log('b')
         return false
        
@@ -42,7 +42,7 @@ function appenddata() {
             `NAME too short`
         )
         document.getElementById('alertbox').style.display="block"
-        document.getElementById('alertbox').innerHTML+=`Name too short`
+        document.getElementById('alertbox').innerHTML=`Name too short`
         console.log('c')
         return false
         
@@ -52,7 +52,7 @@ function appenddata() {
         console.log(
             `Invalid Email`)
             document.getElementById('alertbox').style.display="block"
-            document.getElementById('alertbox').innerHTML+=` Invalid Email`
+            document.getElementById('alertbox').innerHTML=` Invalid Email`
             return false
     }
 
