@@ -11,7 +11,7 @@ function appenddata() {
     let agevalue = document.getElementById('sAge').value
     let emailAdress = document.getElementById('semail').value;
     // console.log(validateEmail(emailAdress));
-    if (validateEmail(emailAdress) && namevalue.length > 1 && agevalue.length > 1 && display == 1 ) {
+    if (validateEmail(emailAdress) && namevalue.length > 1 && agevalue.length > 1) {
         
         let inputData =
         {
@@ -21,6 +21,7 @@ function appenddata() {
         }
         StudentData.unshift(inputData)
         printcard()
+        document.getElementById('alertbox').style.display="none"
         console.log('a')
         return true
        
