@@ -1,20 +1,18 @@
 document.getElementById('sb').addEventListener('click', appenddata)
+document.getElementById('alertbox').style.display="none"
 
 let StudentData = [
     { name: 'XYZ', age: '20', emailid: 'name@xyz.com' }
 ]
 
-// let namevalue = document.getElementById('sname').value
-// let agevalue = parseInt(document.getElementById('sAge').value)
-// let emailAdress = document.getElementById('semail').value;
 
 function appenddata() {
     let namevalue = document.getElementById('sname').value
     let agevalue = document.getElementById('sAge').value
     let emailAdress = document.getElementById('semail').value;
-
-    console.log(validateEmail(emailAdress));
-    if (validateEmail(emailAdress) == true && namevalue.length > 1 && agevalue.length > 1 ) {
+    // console.log(validateEmail(emailAdress));
+    if (validateEmail(emailAdress) && namevalue.length > 1 && agevalue.length > 1 && display == 1 ) {
+        
         let inputData =
         {
             name: namevalue,
@@ -23,20 +21,40 @@ function appenddata() {
         }
         StudentData.unshift(inputData)
         printcard()
+        console.log('a')
         return true
+       
     }
+
     else if (agevalue.length == 1) {
-        alert(
+        console.log(
             `AGE too short`
         )
+        document.getElementById('alertbox').style.display="block"
+        document.getElementById('alertbox').innerHTML+=` AGE too short`
+        console.log('b')
         return false
+       
     }
-    else if (namevalue.length = 1) {
-        alert(
-            `name too short`
+    else if (namevalue.length < 1 ) {
+        console.log(
+            `NAME too short`
         )
+        document.getElementById('alertbox').style.display="block"
+        document.getElementById('alertbox').innerHTML+=`Name too short`
+        console.log('c')
         return false
+        
+       
     } 
+    else if(validateEmail(emailAdress) == false){
+        console.log(
+            `Invalid Email`)
+            document.getElementById('alertbox').style.display="block"
+            document.getElementById('alertbox').innerHTML+=` Invalid Email`
+            return false
+    }
+
 }
 
 function validateEmail (emailAdress)
@@ -45,8 +63,6 @@ function validateEmail (emailAdress)
   if (emailAdress.match(regexEmail)) {
     return true; 
   } else {
-    alert(
-        `Invalid Email`)
     return false
   }
 }
@@ -57,7 +73,7 @@ function validateEmail (emailAdress)
 printcard()
 function printcard() {
     document.getElementById('data').innerHTML = ``
-
+    
     for (i = 0; i < StudentData.length; i++) {
         document.getElementById('data').innerHTML += `
         <div class="col mt-3" >
@@ -72,7 +88,7 @@ function printcard() {
             </div>
         </div>`
     }
-
+    
 }
 
 function deletecard(index) {

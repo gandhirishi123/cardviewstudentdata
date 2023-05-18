@@ -11,6 +11,9 @@ body{
 button{
     border-radius: 25%;
 }
-span{
-    visibility: hidden;
+#alertbox{
+    text-align: center;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
 }
