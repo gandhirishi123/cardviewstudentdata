@@ -32,7 +32,7 @@ function appenddata() {
             `AGE too short`
         )
         document.getElementById('alertbox').style.display="block"
-        document.getElementById('alertbox').innerHTML=` AGE too short`
+        document.getElementById('alertbox').innerHTML= ` AGE too short`
         console.log('b')
         return false
        
